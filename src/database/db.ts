@@ -5,11 +5,13 @@ dotenv.config();
 
 const connectDB = async () => {
   try {
-    await connect(process.env.DB_MONGO || '');
+    const connection = await connect(process.env.DB_MONGO || '');
 
-    console.log('DB conectada');
+    const url = `${connection.connection.host}:${connection.connection.port}`;
+
+    console.log(`MongoDB conectado en: ${url}`);
   } catch (error) {
-    console.error(error);
+    console.error(`error: ${error.message}`);
     process.exit(1);
   }
 };
