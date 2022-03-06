@@ -1,6 +1,14 @@
 import { Schema, model } from 'mongoose';
 
-const userSchema = new Schema(
+interface IUser {
+  name: string;
+  password: string;
+  email: string;
+  token: string;
+  confirmed: boolean;
+}
+
+const userSchema = new Schema<IUser>(
   {
     name: {
       type: String,
