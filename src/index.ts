@@ -1,5 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 import connectDB from './database/db';
 import routerApi from './routes';
@@ -9,6 +10,7 @@ dotenv.config();
 // Crear app
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 // Conectar a la base de datos
 connectDB();
