@@ -1,6 +1,4 @@
-import express from 'express';
-import dotenv from 'dotenv';
-import cors from 'cors';
+import { cors, dotenv, express } from './modules';
 
 import connectDB from './database/db';
 import routerApi from './routes';

@@ -1,4 +1,4 @@
-import { Express, Router } from 'express';
+import { Express, Router } from '../modules';
 import usersRouter from './users.routes';
 
 const routerApi = (app: Express) => {

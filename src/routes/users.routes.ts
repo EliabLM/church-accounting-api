@@ -1,23 +1,24 @@
-import { Router } from 'express';
+import { Router } from '../modules';
 import {
-  authenticate,
-  createUser,
+  create,
+  read,
+  readById,
+  confirmAccount,
+  update,
   deleteUser,
-  readUser,
-  readUsers,
-  updateUser,
-} from '../controllers/users.controller';
+  authenticate,
+  recoverPassword,
+} from '../controllers/users';
 
 const router = Router();
 
-router.post('/', createUser);
-router.get('/', readUsers);
-router.get('/:id', readUser);
-router.put('/:id', updateUser);
+router.post('/', create);
+router.get('/', read);
+router.get('/:id', readById);
+router.put('/:id', update);
 router.delete('/:id', deleteUser);
 router.post('/login', authenticate);
-router.get('/confirm/:token', () => {
-  console.log('confirmando usuario');
-});
+router.get('/confirm-account/:token', confirmAccount);
+router.post('/recover-password', recoverPassword);
 
 export default router;

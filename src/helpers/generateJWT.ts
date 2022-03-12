@@ -1,4 +1,4 @@
-import jwt from 'jsonwebtoken';
+import { jwt } from '../modules';
 
 const generateJWT = (id: string) => {
   return jwt.sign({ id }, process.env.SECRET || '', {
